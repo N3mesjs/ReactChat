@@ -1,9 +1,9 @@
-import LoginPage from '../components/loginPage';
+import SignInPage from '../components/signInPage';
 
 export default function Page() {
     return (
         <>
-            <LoginPage />
+            <SignInPage />
         </>
     )
   }
