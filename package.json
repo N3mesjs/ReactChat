@@ -2,6 +2,7 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.0.17",
     "@tailwindcss/postcss": "^4.0.17",
+    "argon2": "^0.41.1",
     "firebase": "^11.6.0",
     "next": "^15.2.4",
     "next-auth": "^5.0.0-beta.25",
