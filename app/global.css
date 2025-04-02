@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+.main {
+    @apply bg-gray-900 w-screen h-screen flex flex-col text-white justify-center items-center gap-[3em];
+}
+
+.form {
+    @apply flex flex-col bg-black p-7 rounded-3xl gap-6;
+}
+
+.inpt {
+    @apply rounded-[3px] p-3 border-[1px] focus:outline-none;
+}
+
+.send-btn {
+    @apply bg-blue-500 rounded-3xl p-3 hover:bg-blue-700;
+}
