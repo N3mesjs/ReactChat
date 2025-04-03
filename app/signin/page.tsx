@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'
+import { signIn } from "../../auth"
 
 export default function SignInPage() {
     const [username, setUsername] = useState<string>('');
@@ -36,14 +37,17 @@ export default function SignInPage() {
     return (
         <main className="main">
             <h1 className='text-[2em] font-bold'>SignIn to Nymes's Chat App</h1>
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit} action={async (formData) => {
+        "use server"
+        await signIn("credentials", formData)
+      }} >
                 <div className='flex flex-col gap-1'>
                     <label htmlFor="username">Username</label>
-                    <input type="text" placeholder="Username" className="inpt" id="username" onChange={(e) => setUsername(e.target.value)} />
+                    <input type="text" name="username" placeholder="Username" className="inpt" id="username" onChange={(e) => setUsername(e.target.value)} />
                 </div>
                 <div className='flex flex-col gap-1'>
                     <label htmlFor="password">Password</label>
-                    <input type="password" placeholder="Password" className="inpt" id="password" onChange={(e) => setPassword(e.target.value)} />
+                    <input type="password" name="password" placeholder="Password" className="inpt" id="password" onChange={(e) => setPassword(e.target.value)} />
                 </div>
 
                 <button type="submit" className="send-btn">SignIn</button>

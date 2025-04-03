@@ -2,6 +2,7 @@ import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 // Your own logic for dealing with plaintext password strings; be careful!
 import saltAndHashPassword from "./utils/saltAndHashPassword"
+import getUserFromDb from "./utils/getUserFromDb"
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [

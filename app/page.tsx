@@ -1,17 +1,14 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useSession } from "next-auth/react"
 
 export default function Page() {
 
-    useEffect(() => {
-        fetch('/api/')
-            .then((res) => console.log(res))
-            .catch((err) => console.error(err));
-    }, []);
-    return (
-        <>
-            
-        </>
-    )
+    const { data: session } = useSession()
+ 
+  if (session?.user) {
+    return <p>You are an admin, welcome!</p>
+  }
+ 
+  return <p>You are not authorized to view this page!</p>
   }
