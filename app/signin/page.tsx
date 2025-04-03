@@ -1,11 +1,13 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 export default function SignInPage() {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [exists, setExists] = useState<boolean>(false);
+
+    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -24,13 +26,10 @@ export default function SignInPage() {
                 alert('User created successfully');
                 setUsername('');
                 setPassword('');
-
-                redirect('/');
+                router.push('/');
             }
-            console.log(res);
         }).catch((err) => {
             console.error(err);
-            alert('Error creating user');
         });
     }
 

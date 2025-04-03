@@ -1,4 +1,5 @@
 import * as argon2 from "argon2";
+import { redirect } from "next/navigation";
 
 import { db } from '../../components/fireBase';
 
@@ -25,6 +26,9 @@ export async function POST(request: Request) {
       password: password,
       createdAt: new Date(),
   });
+
+  redirect('/');
+
   return new Response(
     JSON.stringify({ message: "Success" }),
     { status: 200, headers: { "Content-Type": "application/json" } }
